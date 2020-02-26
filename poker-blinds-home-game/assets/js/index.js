@@ -101,6 +101,87 @@ var ranking = {
             pontos: 50
         }
     ],
+    jogadores: [{
+            id: 1,
+            nomeJogador: "Daniel",
+            foto: "daniel.jpg",
+            posicao: 1,
+            buyIn: true,
+            reBuys: 0,
+            addOn: true,
+            pontos: 10
+        },
+        {
+            id: 2,
+            nomeJogador: "Fred",
+            foto: "fred.jpg",
+            posicao: 2,
+            buyIn: true,
+            reBuys: 2,
+            addOn: true,
+            pontos: 6
+        },
+        {
+            id: 2,
+            nomeJogador: "Victor",
+            foto: "victor.jpg",
+            posicao: 3,
+            buyIn: true,
+            reBuys: 2,
+            addOn: true,
+            pontos: 3
+        },
+        {
+            id: 2,
+            nomeJogador: "Otávio",
+            foto: "otavio.jpg",
+            posicao: 4,
+            buyIn: true,
+            reBuys: 2,
+            addOn: true,
+            pontos: 1
+        },
+        {
+            id: 2,
+            nomeJogador: "João",
+            foto: "joao.jpg",
+            posicao: 5,
+            buyIn: true,
+            reBuys: 2,
+            addOn: true,
+            pontos: 1
+        },
+        {
+            id: 2,
+            nomeJogador: "Biza",
+            foto: "biza.jpg",
+            posicao: 6,
+            buyIn: true,
+            reBuys: 2,
+            addOn: true,
+            pontos: 1
+        },
+        {
+            id: 2,
+            nomeJogador: "Palestra",
+            foto: "palestra.jpg",
+            posicao: 7,
+            buyIn: true,
+            reBuys: 2,
+            addOn: true,
+            pontos: 1
+        },
+        {
+            id: 2,
+            nomeJogador: "Tiê",
+            foto: "tie.jpg",
+            posicao: 8,
+            buyIn: true,
+            reBuys: 2,
+            addOn: true,
+            pontos: 1
+        }
+    ],
     torneios: [
         torneio
     ],
@@ -156,7 +237,36 @@ function montarCenter() {
 }
 
 function montarRight() {
+    montarPlayers();
+}
 
+function montarPlayers() {
+    jQuery("#pb-ranking-box").empty();
+
+    var templatePlayer = '<div class="pb-ranking-row"><div class="pb-player-place">';
+    templatePlayer += '{player-place}º';
+    templatePlayer += '</div>';
+    templatePlayer += '<div class="pb-player-photo" style="background-image: url(\'./assets/imagens/players/{player-photo}\');">';
+    templatePlayer += '';
+    templatePlayer += '</div>';
+    templatePlayer += '<div class="pb-player-name">';
+    templatePlayer += '{player-name}';
+    templatePlayer += '</div>';
+    templatePlayer += '<div class="pb-player-points">';
+    templatePlayer += '{player-points}';
+    templatePlayer += '</div></div>';
+
+    for (var i = 0; i < ranking.jogadores.length; i++) {
+        var player = ranking.jogadores[i];
+        var template = templatePlayer;
+
+        template = template.replace("{player-place}", player.posicao);
+        template = template.replace("{player-photo}", player.foto);
+        template = template.replace("{player-name}", player.nomeJogador);
+        template = template.replace("{player-points}", player.pontos);
+
+        jQuery("#pb-ranking-box").append(template);
+    }
 }
 
 function montarBlinds(blinds) {

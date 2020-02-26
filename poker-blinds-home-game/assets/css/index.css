@@ -140,3 +140,42 @@ body {
     padding-left: 10px;
     padding-right: 10px;
 }
+
+.screen-right .pb-ranking-row {
+    display: flex;
+    justify-content: space-between;
+    vertical-align: middle;
+    align-items: center;
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+
+.screen-right .pb-player-photo {
+    width: 80px;
+    height: 80px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100%;
+    border-radius: 50%;
+}
+
+#pb-ranking-box {
+    padding: 10px;
+}
+
+#pb-right-header {
+    font-size: 34px;
+    text-align: center;
+    background: #222222;
+    padding: 10px 0;
+}
+
+.pb-ranking-row .pb-player-place {}
+
+.pb-ranking-row .pb-player-place {}
+
+.pb-ranking-row .pb-player-name {
+    width: 70%
+}
+
+.pb-ranking-row .pb-player-place {}

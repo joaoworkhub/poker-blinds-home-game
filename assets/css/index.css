@@ -1,0 +1,142 @@
+body {
+    background: black;
+    color: lightseagreen;
+    padding: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.screen {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/* LEFT */
+
+.screen-left {
+    border: 5px solid black;
+    background: #2e2e2e;
+    border-radius: 10px;
+    width: 100%;
+    margin: 10px;
+}
+
+.screen #pb-info-title {
+    font-size: 34px;
+    text-align: center;
+    background: #222222;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.screen #pb-info-level {
+    font-size: 28px;
+    text-align: center;
+}
+
+.screen #pb-settings {
+    font-size: 20px;
+    text-align: right;
+}
+
+#pb-general-info .pb-info-group {
+    padding: 10px;
+}
+
+#pb-general-info .label {
+    font-size: 24px;
+    margin-bottom: 5px;
+    color: lightseagreen;
+}
+
+#pb-general-info .value {
+    font-size: 28px;
+    margin-bottom: 5px;
+    color: white;
+}
+
+
+/* CENTER */
+
+.screen-center {
+    border: 5px solid black;
+    border-radius: 10px;
+    width: 100%;
+    margin: 10px;
+}
+
+.screen #pb-info-blinds .label {
+    font-size: 18px;
+    text-align: center;
+}
+
+.screen #pb-current-blinds {
+    font-size: 58px;
+    text-align: center;
+    color: white;
+}
+
+.screen #pb-current-ante {
+    font-size: 38px;
+    text-align: center;
+    color: white;
+}
+
+.screen #pb-info-timer {
+    display: flex;
+    justify-content: center;
+}
+
+.screen #pb-info-timer .circle {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    border: 30px solid rgb(16, 139, 63);
+    padding: 30px;
+}
+
+.screen #pb-timer {
+    font-size: 88px;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+    height: 200px;
+    color: white;
+}
+
+.screen #pb-info-players {
+    font-size: 32px;
+    text-align: center;
+}
+
+
+/* RIGHT */
+
+.screen-right {
+    border: 5px solid black;
+    background: #2e2e2e;
+    border-radius: 10px;
+    width: 100%;
+    margin: 10px;
+}
+
+.screen-right #pb-timer-controls {
+    display: flex;
+    justify-content: space-between;
+}
+
+.screen-left>div,
+.screen-center>div,
+.screen-right>div {
+    padding: 10px;
+}
+
+.screen-right .pb-row.pb-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.screen-right .pb-row.pb-buttons .pb-button {
+    padding-left: 10px;
+    padding-right: 10px;
+}

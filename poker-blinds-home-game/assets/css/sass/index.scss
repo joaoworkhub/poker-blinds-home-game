@@ -1,0 +1,21 @@
+body {
+    background: black;
+    color: lightseagreen;
+    padding: 1em;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    .screen {
+        display: flex;
+        justify-content: space-between;
+        .screen-left {
+            background: #2e2e2e;
+            border-radius: 10px;
+            width: 100%;
+            margin: 1em;
+        }
+        .screen-center {
+            border-radius: 10px;
+            width: 100%;
+            margin: 1em;
+        }
+    }
+}

@@ -137,6 +137,7 @@ body {
 .screen-right .pb-row.pb-buttons .pb-button {
     padding-left: 1em;
     padding-right: 1em;
+    cursor: pointer;
 }
 
 .screen-right .pb-ranking-row {

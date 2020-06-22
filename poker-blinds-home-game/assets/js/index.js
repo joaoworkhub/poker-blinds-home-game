@@ -1,5 +1,7 @@
 ﻿var timerClock = 0;
 
+var timerClockPaused = false;
+
 var torneio = {
     id: 1,
     nomeTorneio: "Home Game do João",
@@ -11,7 +13,7 @@ var torneio = {
             small: 50,
             big: 100,
             ante: null,
-            duracao: 1 * 60,
+            duracao: 20 * 60,
             break: false
         },
         {
@@ -19,7 +21,7 @@ var torneio = {
             small: 100,
             big: 200,
             ante: null,
-            duracao: 1 * 60,
+            duracao: 20 * 60,
             break: false
         },
         {
@@ -131,6 +133,14 @@ var torneio = {
             small: 3000,
             big: 6000,
             ante: 6000,
+            duracao: 20 * 60,
+            break: false
+        },
+        {
+            nivel: 16,
+            small: 4000,
+            big: 8000,
+            ante: 8000,
             duracao: 20 * 60,
             break: false
         }
@@ -352,7 +362,15 @@ function montarCenter() {
     mudarNivel();
 
     jQuery(document).on("click", ".pb-button-play", function() {
-        startTimer();
+        if (timerClockPaused) {
+            resumeTimer();
+        } else {
+            startTimer();
+        }
+    });
+
+    jQuery(document).on("click", ".pb-button-pause", function() {
+        pauseTimer();
     });
 
     jQuery(document).on("click", ".pb-button-stop", function() {
@@ -372,6 +390,20 @@ function mudarNivel() {
         montarBlinds(blinds);
         montarTimer(blinds.duracao);
     } else {
+        torneio.nivel = parseInt(nivelRecuperado);
+        jQuery("#pb-info-level").text("Nível " + torneio.nivel);
+        var blinds = obterPorValor(torneio.blinds, "nivel", torneio.nivel);
+        montarBlinds(blinds);
+        montarTimer(parseInt(timerRecuperado));
+        startTimer();
+    }
+}
+
+function resumeTimer() {
+    var nivelRecuperado = localStorage.getItem("nivel");
+    var timerRecuperado = localStorage.getItem("timer");
+
+    if (nivelRecuperado != null) {
         torneio.nivel = parseInt(nivelRecuperado);
         jQuery("#pb-info-level").text("Nível " + torneio.nivel);
         var blinds = obterPorValor(torneio.blinds, "nivel", torneio.nivel);
@@ -480,7 +512,6 @@ function startTimer() {
         minutes = minutes < 10 ? "0" + minutes : minutes;
         seconds = seconds < 10 ? "0" + seconds : seconds;
 
-        //display.textContent = minutes + ":" + seconds;
         jQuery("#pb-timer").text(minutes + ":" + seconds);
 
         if (turn == 0) {
@@ -493,8 +524,6 @@ function startTimer() {
         }
 
         if (timer == turns[turn]) {
-
-
             turn = turn + 1;
 
             if (turn == 1) {
@@ -524,7 +553,13 @@ function startTimer() {
     }, 1000);
 }
 
+function pauseTimer() {
+    timerClockPaused = true;
+    clearInterval(timerClock);
+}
+
 function stopTimer() {
+    timerClockPaused = false;
     clearInterval(timerClock);
 }
 

@@ -2,6 +2,8 @@
 
 var timerClockPaused = false;
 
+var minutosBlinds = 20;
+
 var torneio = {
     id: 1,
     nomeTorneio: "Home Game do João",
@@ -13,7 +15,7 @@ var torneio = {
             small: 50,
             big: 100,
             ante: null,
-            duracao: 20 * 60,
+            duracao: minutosBlinds * 60,
             break: false
         },
         {
@@ -21,7 +23,7 @@ var torneio = {
             small: 100,
             big: 200,
             ante: null,
-            duracao: 20 * 60,
+            duracao: minutosBlinds * 60,
             break: false
         },
         {
@@ -29,7 +31,7 @@ var torneio = {
             small: 150,
             big: 300,
             ante: null,
-            duracao: 20 * 60,
+            duracao: minutosBlinds * 60,
             break: false
         },
         {
@@ -37,7 +39,7 @@ var torneio = {
             small: 200,
             big: 400,
             ante: null,
-            duracao: 20 * 60,
+            duracao: minutosBlinds * 60,
             break: false
         },
         {
@@ -45,7 +47,7 @@ var torneio = {
             small: 250,
             big: 500,
             ante: null,
-            duracao: 20 * 60,
+            duracao: minutosBlinds * 60,
             break: false
         },
         {
@@ -53,7 +55,7 @@ var torneio = {
             small: 300,
             big: 600,
             ante: null,
-            duracao: 20 * 60,
+            duracao: minutosBlinds * 60,
             break: false
         },
         {
@@ -61,7 +63,7 @@ var torneio = {
             small: null,
             big: null,
             ante: null,
-            duracao: 20 * 60,
+            duracao: minutosBlinds * 60,
             break: true
         },
         {
@@ -69,7 +71,7 @@ var torneio = {
             small: 400,
             big: 800,
             ante: 800,
-            duracao: 20 * 60,
+            duracao: minutosBlinds * 60,
             break: false
         },
         {
@@ -77,7 +79,7 @@ var torneio = {
             small: 500,
             big: 1000,
             ante: 1000,
-            duracao: 20 * 60,
+            duracao: minutosBlinds * 60,
             break: false
         },
         {
@@ -85,7 +87,7 @@ var torneio = {
             small: 600,
             big: 1200,
             ante: 1200,
-            duracao: 20 * 60,
+            duracao: minutosBlinds * 60,
             break: false
         },
         {
@@ -93,7 +95,7 @@ var torneio = {
             small: 800,
             big: 1600,
             ante: 1600,
-            duracao: 20 * 60,
+            duracao: minutosBlinds * 60,
             break: false
         },
         {
@@ -101,7 +103,7 @@ var torneio = {
             small: 1000,
             big: 2000,
             ante: 2000,
-            duracao: 20 * 60,
+            duracao: minutosBlinds * 60,
             break: false
         },
         {
@@ -109,7 +111,7 @@ var torneio = {
             small: 1500,
             big: 3000,
             ante: 3000,
-            duracao: 20 * 60,
+            duracao: minutosBlinds * 60,
             break: false
         },
         {
@@ -117,7 +119,7 @@ var torneio = {
             small: 2000,
             big: 4000,
             ante: 4000,
-            duracao: 20 * 60,
+            duracao: minutosBlinds * 60,
             break: false
         },
         {
@@ -125,7 +127,7 @@ var torneio = {
             small: 2500,
             big: 5000,
             ante: 5000,
-            duracao: 20 * 60,
+            duracao: minutosBlinds * 60,
             break: false
         },
         {
@@ -133,7 +135,7 @@ var torneio = {
             small: 3000,
             big: 6000,
             ante: 6000,
-            duracao: 20 * 60,
+            duracao: minutosBlinds * 60,
             break: false
         },
         {
@@ -141,7 +143,8 @@ var torneio = {
             small: 4000,
             big: 8000,
             ante: 8000,
-            duracao: 20 * 60,
+            duracao: minutosBlinds
+             * 60,
             break: false
         }
     ],
@@ -332,6 +335,67 @@ var ranking = {
     ]
 };
 
+ranking.jogadores = [{
+    id: 1,
+    nomeJogador: "Daniel",
+    foto: "daniel.jpg",
+    posicao: 1,
+    buyIn: true,
+    reBuys: 0,
+    addOn: true,
+    pontos: 0
+},
+{
+    id: 2,
+    nomeJogador: "Fred",
+    foto: "fred.jpg",
+    posicao: 2,
+    buyIn: true,
+    reBuys: 2,
+    addOn: true,
+    pontos: 0
+},
+{
+    id: 2,
+    nomeJogador: "Shogo",
+    foto: "shogo.jpg",
+    posicao: 3,
+    buyIn: true,
+    reBuys: 2,
+    addOn: true,
+    pontos: 0
+},
+{
+    id: 2,
+    nomeJogador: "Luiz Paulo",
+    foto: "luizpaulo.jpg",
+    posicao: 4,
+    buyIn: true,
+    reBuys: 2,
+    addOn: true,
+    pontos: 0
+},
+{
+    id: 2,
+    nomeJogador: "João",
+    foto: "joao.jpg",
+    posicao: 5,
+    buyIn: true,
+    reBuys: 2,
+    addOn: true,
+    pontos: 0
+},
+{
+    id: 2,
+    nomeJogador: "Tiê",
+    foto: "tie.jpg",
+    posicao: 8,
+    buyIn: true,
+    reBuys: 2,
+    addOn: true,
+    pontos: 0
+}];
+
 jQuery(document).ready(function() {
     montarLeft();
     montarCenter();
@@ -377,13 +441,34 @@ function montarCenter() {
         resetTimer();
     });
 
+    jQuery(document).on("click", ".pb-button-next", function() {
+        pauseTimer();
+        proximoNivel();
+    });
+
+    jQuery(document).on("click", ".pb-button-prev", function() {
+        pauseTimer();
+    });
+
     jQuery("#pb-settings").text("Configurações");
+}
+
+function proximoNivel () {
+    torneio.nivel = torneio.nivel + 1;
+    localStorage.setItem('nivel', torneio.nivel);
+    mudarNivel();
+}
+
+function nivelAnterior () {
+    torneio.nivel = torneio.nivel + 1;
+    localStorage.setItem('nivel', torneio.nivel);
+    mudarNivel();
 }
 
 function mudarNivel() {
     var nivelRecuperado = localStorage.getItem("nivel");
     var timerRecuperado = localStorage.getItem("timer");
-
+    
     if (nivelRecuperado == null) {
         jQuery("#pb-info-level").text("Nível " + torneio.nivel);
         var blinds = obterPorValor(torneio.blinds, "nivel", torneio.nivel);
